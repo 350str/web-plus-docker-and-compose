@@ -1,19 +1,12 @@
 FROM node:16-alpine AS build
-
-WORKDIR /usr/src/app/frontend
-
+WORKDIR /app
 COPY package*.json ./
-
-RUN npm i
+RUN npm ci && npm cache clean --force
 COPY . .
 RUN npm run build
 
 FROM nginx:latest AS production
-
-WORKDIR /usr/src/app/frontend
-
-COPY --from=build /usr/src/app/frontend/build ./
+COPY --from=build /app/build /usr/share/nginx/html
 COPY nginx/conf.d/ /etc/nginx/conf.d/
-
-EXPOSE 3000
+EXPOSE 80
 
