@@ -10,6 +10,8 @@ ENV NODE_ENV=production
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci --only=production && npm cache clean --force
+RUN npm i -g pm2 && npm cache clean --force
 COPY --from=build /app/dist/ /app/dist/
+COPY ecosystem.config.js ./
 EXPOSE 3000
-CMD ["node", "dist/main"]
+CMD ["pm2-runtime", "ecosystem.config.js"]
