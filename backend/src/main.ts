@@ -12,6 +12,8 @@ async function bootstrap() {
       'http://127.0.0.1:8081',
       'http://kupi.350str.nomorepartiessite.ru',
       'https://kupi.350str.nomorepartiessite.ru',
+      'http://api.kupi.350str.nomorepartiessite.ru',
+      'https://api.kupi.350str.nomorepartiessite.ru',
     ],
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: [
