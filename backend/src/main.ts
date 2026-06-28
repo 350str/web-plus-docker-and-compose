@@ -7,7 +7,12 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: ['http://localhost:8081', 'http://127.0.0.1:8081'],
+    origin: [
+      'http://localhost:8081',
+      'http://127.0.0.1:8081',
+      'http://kupi.350str.nomorepartiessite.ru',
+      'https://kupi.350str.nomorepartiessite.ru',
+    ],
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: [
       'Origin',
