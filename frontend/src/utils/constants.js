@@ -1,4 +1,4 @@
-export const URL = "https://api.kupi.350str.nomorepartiessite.ru";
+export const URL = `${window.location.protocol}//api.kupi.350str.nomorepartiessite.ru`;
 
 export const MINIMUM_PASSWORD_LENGTH = 3;
 export const MINIMUM_USERNAME_LENGTH = 3;
